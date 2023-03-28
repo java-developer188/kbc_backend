@@ -1,34 +1,17 @@
-package com.sts.entities;
+package com.sts.DTO;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "options")
-public class Options {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+public class OptionsDTO {
 	private long id;
-	@Column
-	private String AnswerOptions;
-	@Column
-	private boolean correctAns;
-	@Column
-	private boolean fiftyfifty;
-	@Column
-	private Integer publicOpinion;
-	@Column
-	private boolean PhnOfFrend;
 	
-	@ManyToOne
-    @JoinColumn(name = "question_id", referencedColumnName = "question_id")
-    private Questions questions;
+	private String AnswerOptions;
+	
+	private boolean correctAns;
+	
+	private boolean fiftyfifty;
+	
+	private Integer publicOpinion;
+
+	private boolean PhnOfFrend;
 
 	public long getId() {
 		return id;
@@ -76,14 +59,6 @@ public class Options {
 
 	public void setPhnOfFrend(boolean phnOfFrend) {
 		PhnOfFrend = phnOfFrend;
-	}
-
-	public Questions getQuestions() {
-		return questions;
-	}
-
-	public void setQuestions(Questions questions) {
-		this.questions = questions;
 	}
 	
 	
