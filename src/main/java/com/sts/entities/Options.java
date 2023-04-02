@@ -25,10 +25,10 @@ public class Options {
 	private Integer publicOpinion;
 	@Column
 	private boolean PhnOfFrend;
-	
+
 	@ManyToOne
-    @JoinColumn(name = "question_id", referencedColumnName = "question_id")
-    private Questions questions;
+	@JoinColumn(name = "question_id", nullable = false)
+	private Questions question;
 
 	public long getId() {
 		return id;
@@ -78,14 +78,4 @@ public class Options {
 		PhnOfFrend = phnOfFrend;
 	}
 
-	public Questions getQuestions() {
-		return questions;
-	}
-
-	public void setQuestions(Questions questions) {
-		this.questions = questions;
-	}
-	
-	
-	
 }

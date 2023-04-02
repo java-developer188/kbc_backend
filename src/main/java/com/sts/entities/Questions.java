@@ -1,45 +1,53 @@
 package com.sts.entities;
 
-import jakarta.persistence.*;
+import java.util.Set;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
-@Table(name ="questions")
+@Table(name = "questions")
 public class Questions {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    @Column
-    private String quest;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	@Column
+	private String quest;
 
-    public Questions(long id, String quest) {
-        this.id = id;
-        this.quest = quest;
-    }
+	@OneToMany(mappedBy = "question")
+	private Set<Options> option;
 
-    @Override
-    public String toString() {
-        return "Questions{" +
-                "id=" + id +
-                ", quest='" + quest + '\'' +
-                '}';
-    }
+	public Questions(long id, String quest) {
+		this.id = id;
+		this.quest = quest;
+	}
 
-    public Questions() {
-    }
+	@Override
+	public String toString() {
+		return "Questions{" + "id=" + id + ", quest='" + quest + '\'' + '}';
+	}
 
-    public long getId() {
-        return id;
-    }
+	public Questions() {
+	}
 
-    public void setId(long id) {
-        this.id = id;
-    }
+	public long getId() {
+		return id;
+	}
 
-    public String getQuest() {
-        return quest;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public void setQuest(String quest) {
-        this.quest = quest;
-    }
+	public String getQuest() {
+		return quest;
+	}
+
+	public void setQuest(String quest) {
+		this.quest = quest;
+	}
 }
