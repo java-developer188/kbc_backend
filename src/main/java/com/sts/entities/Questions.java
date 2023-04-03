@@ -19,7 +19,7 @@ public class Questions {
 	@Column
 	private String quest;
 
-	@OneToMany(mappedBy = "question")
+	@OneToMany(mappedBy = "id")
 	private Set<Options> option;
 
 	public Questions(long id, String quest) {
