@@ -1,6 +1,7 @@
 package com.sts.controllers;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,4 +48,15 @@ public class OptionsController {
 		optionServiceImpl.deleteOptionsById(id);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
+
+	@GetMapping(value = "/get-correctans/{id}")
+	public ResponseEntity<OptionsDTO> getcorrectAnsByValue(@PathVariable("id") Long id) {
+		return new ResponseEntity<OptionsDTO>(optionServiceImpl.getcorrectAnsByValue(id), HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/get-phnoffrend/{id}")
+	public ResponseEntity<OptionsDTO> getphnOfFrend(@PathVariable("id") Long id) {
+		return new ResponseEntity<OptionsDTO>(optionServiceImpl.getphnOfFrend(id), HttpStatus.OK);
+	}
+
 }

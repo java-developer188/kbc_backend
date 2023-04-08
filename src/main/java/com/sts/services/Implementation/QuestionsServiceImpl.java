@@ -1,10 +1,14 @@
 package com.sts.services.Implementation;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.sts.DTO.OptionsDTO;
 import com.sts.DTO.QuestionsDTO;
 import com.sts.entities.Questions;
 import com.sts.repositories.QuestionsRepository;
@@ -16,6 +20,16 @@ public class QuestionsServiceImpl implements QuestionsService {
 	private QuestionsRepository questRepo;
 	@Autowired
 	private ModelMapper modelmapper;
+
+	private List<OptionsDTO> optionsDtoList = new ArrayList<OptionsDTO>();
+
+	public List<OptionsDTO> getOptionsDtoList() {
+		return optionsDtoList;
+	}
+
+	public void setOptionsDtoList(List<OptionsDTO> optionsDtoList) {
+		this.optionsDtoList = optionsDtoList;
+	}
 
 	@Override
 	public QuestionsDTO registerQuestions(QuestionsDTO questiondto) {

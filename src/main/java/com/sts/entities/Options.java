@@ -16,19 +16,52 @@ public class Options {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	@Column
-	private String AnswerOptions;
+	private String Value;
 	@Column
-	private boolean correctAns;
+	private Boolean correctAns;
 	@Column
-	private boolean fiftyfifty;
+	private Boolean fiftyfifty;
 	@Column
 	private Integer publicOpinion;
 	@Column
-	private boolean PhnOfFrend;
+	private Boolean PhnOfFrend;
 
 	@ManyToOne
 	@JoinColumn(name = "question_id", nullable = false)
 	private Questions question;
+
+	
+	public Boolean getCorrectAns() {
+		return correctAns;
+	}
+
+	public void setCorrectAns(Boolean correctAns) {
+		this.correctAns = correctAns;
+	}
+
+	public Boolean getFiftyfifty() {
+		return fiftyfifty;
+	}
+
+	public void setFiftyfifty(Boolean fiftyfifty) {
+		this.fiftyfifty = fiftyfifty;
+	}
+
+	public Boolean getPhnOfFrend() {
+		return PhnOfFrend;
+	}
+
+	public void setPhnOfFrend(Boolean phnOfFrend) {
+		PhnOfFrend = phnOfFrend;
+	}
+
+	public Questions getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(Questions question) {
+		this.question = question;
+	}
 
 	public long getId() {
 		return id;
@@ -37,29 +70,14 @@ public class Options {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
 
-	public String getAnswerOptions() {
-		return AnswerOptions;
+	public String getValue() {
+		return Value;
 	}
 
-	public void setAnswerOptions(String answerOptions) {
-		AnswerOptions = answerOptions;
-	}
-
-	public boolean isCorrectAns() {
-		return correctAns;
-	}
-
-	public void setCorrectAns(boolean correctAns) {
-		this.correctAns = correctAns;
-	}
-
-	public boolean isFiftyfifty() {
-		return fiftyfifty;
-	}
-
-	public void setFiftyfifty(boolean fiftyfifty) {
-		this.fiftyfifty = fiftyfifty;
+	public void setValue(String value) {
+		Value = value;
 	}
 
 	public Integer getPublicOpinion() {
@@ -70,12 +88,5 @@ public class Options {
 		this.publicOpinion = publicOpinion;
 	}
 
-	public boolean isPhnOfFrend() {
-		return PhnOfFrend;
-	}
-
-	public void setPhnOfFrend(boolean phnOfFrend) {
-		PhnOfFrend = phnOfFrend;
-	}
 
 }

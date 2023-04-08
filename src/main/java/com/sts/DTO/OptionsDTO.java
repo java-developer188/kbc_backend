@@ -3,7 +3,7 @@ package com.sts.DTO;
 public class OptionsDTO {
 	private long id;
 	
-	private String AnswerOptions;
+	private String Value;
 	
 	private boolean correctAns;
 	
@@ -12,6 +12,8 @@ public class OptionsDTO {
 	private Integer publicOpinion;
 
 	private boolean PhnOfFrend;
+	
+	
 
 	public long getId() {
 		return id;
@@ -21,12 +23,13 @@ public class OptionsDTO {
 		this.id = id;
 	}
 
-	public String getAnswerOptions() {
-		return AnswerOptions;
+
+	public String getValue() {
+		return Value;
 	}
 
-	public void setAnswerOptions(String answerOptions) {
-		AnswerOptions = answerOptions;
+	public void setValue(String value) {
+		Value = value;
 	}
 
 	public boolean isCorrectAns() {
@@ -60,6 +63,8 @@ public class OptionsDTO {
 	public void setPhnOfFrend(boolean phnOfFrend) {
 		PhnOfFrend = phnOfFrend;
 	}
+
+
 	
 	
 	

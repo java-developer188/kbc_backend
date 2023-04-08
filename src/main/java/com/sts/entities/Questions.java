@@ -1,7 +1,6 @@
 package com.sts.entities;
 
-import java.util.Set;
-
+import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,11 +19,14 @@ public class Questions {
 	private String quest;
 
 	@OneToMany(mappedBy = "id")
-	private Set<Options> option;
+	private List<Options> option;
 
-	public Questions(long id, String quest) {
-		this.id = id;
-		this.quest = quest;
+	public List<Options> getOption() {
+		return option;
+	}
+
+	public void setOption(List<Options> option) {
+		this.option = option;
 	}
 
 	@Override

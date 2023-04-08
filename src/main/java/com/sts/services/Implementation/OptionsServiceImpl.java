@@ -2,9 +2,11 @@ package com.sts.services.Implementation;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.sts.DTO.OptionsDTO;
 import com.sts.entities.Options;
 import com.sts.repositories.OptionsRepository;
@@ -41,7 +43,7 @@ public class OptionsServiceImpl implements OptionsService {
 	public OptionsDTO updateOptions(OptionsDTO optiondto, long id) {
 		Options option = optionRepo.findById(id).orElseThrow(() -> new RuntimeException("No such id exists"));
 		OptionsDTO updateOptionDto = modelmapper.map(option, OptionsDTO.class);
-		option.setAnswerOptions(optiondto.getAnswerOptions());
+		option.setValue(optiondto.getValue());
 		option.setCorrectAns(true);
 		option.setFiftyfifty(true);
 		option.setPhnOfFrend(true);
@@ -54,5 +56,30 @@ public class OptionsServiceImpl implements OptionsService {
 		optionRepo.deleteById(id);
 
 	}
+
+	@Override
+	public OptionsDTO getcorrectAnsByValue(long id) {
+		Options option = optionRepo.findById(id).get();
+		return modelmapper.map(option, OptionsDTO.class);
+	}
+
+	@Override
+	public OptionsDTO getphnOfFrend(long id) {
+		Options option = optionRepo.findById(id).get();
+		return modelmapper.map(option, OptionsDTO.class);
+	}
+
+	@Override
+	public OptionsDTO getfiftyfifty(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public OptionsDTO getpublicOpinion(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }
